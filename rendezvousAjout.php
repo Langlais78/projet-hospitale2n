@@ -18,12 +18,6 @@ $idPatient = null;
 if (!empty($_POST['idPatient']) && ctype_digit($_POST['idPatient'])) {
     $idPatient = $_POST['idPatient'];
 }
-//echo '<pre>'; print_r($idPatient); echo '</pre>';
-
-// if (!$dateHour || !$idPatient) {
-//     die("Votre formulaire a été mal rempli !");
-    
-// }
 
 if (isset($dateHour, $idPatient))
 {

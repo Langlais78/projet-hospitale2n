@@ -15,7 +15,9 @@ if (!$patient_id) {
 
 $patient = findPatient($patient_id);
 
+$rendezvous = findAllRendezvous($patient_id);
+
 
 $pageTitle =  'Profil patient';
 
-render('patients/profil-patient', compact('pageTitle', 'patient', 'patient_id'));
+render('patients/profil-patient', compact('pageTitle', 'patient', 'patient_id', 'rendezvous'));
