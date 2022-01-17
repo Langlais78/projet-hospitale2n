@@ -17,5 +17,7 @@
             <?php endforeach ?>       
         </div>
     </div>
+
+    <a href="rendezvousModify.php?id=<?= $rendezvous['id'] ?>" class="btn btn-success">Modifier rendez-vous</a>
     
 </div>

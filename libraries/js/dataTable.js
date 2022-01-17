@@ -8,3 +8,16 @@ $(document).ready(function() {
         ]
     });
 });
+
+$(document).ready(function() {
+    $("#table-liste-rendezvous").DataTable({
+        language: {
+            url: 'libraries/js/dataTable.french.json'
+        },
+        "aoColumnDefs": [
+            { 'bSortable': false, 'aTargets': [ 3 ] }
+        ]
+    });
+});
+
+

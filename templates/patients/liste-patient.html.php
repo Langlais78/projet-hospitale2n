@@ -32,8 +32,9 @@
 
         <?php endforeach; ?>
             <td>
-              <a href="patientProfil.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Details patient</a>
+              <a href="patientProfil.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Details</a>
               <a href="patientModify.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Modifier</a>
+              <a href="patientDelete.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Supprimer</a>
             </td>
       </tr>
 

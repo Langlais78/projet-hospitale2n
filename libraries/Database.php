@@ -82,7 +82,7 @@
 
     }
 
-    function findRendezvous(int $id) : array{
+    function findRendezvous(int $id){
 
         $pdo = getPdo();
 
@@ -92,5 +92,40 @@
 
         return $rendezvous;
 
+    }
+
+    function modifyRendezvous(){
+
+        $pdo = getPdo();
+
+        $query = $pdo->prepare("UPDATE appointments SET dateHour = :dateHour, idPatients = :idPatients WHERE id = :rendezvous_id");
+
+        $query->bindValue(':rendezvous_id', $_GET['id'], PDO::PARAM_INT);
+        $query->bindValue(':dateHour', $_POST['dateHour'], PDO::PARAM_STR);
+        $query->bindValue(':idPatients', $_POST['idPatients'], PDO::PARAM_INT);
+
+        $query->execute();
+
+    }
+
+    function deleteRendezvous(int $id) : void{
+         $pdo = getPdo();
+
+        $query = $pdo->prepare('DELETE FROM appointments WHERE id = :id');
+        $query->execute(['id' => $id]);
+    }
+
+    function deletePatient(int $id) : void{
+        $pdo = getPdo();
+
+       $query = $pdo->prepare('DELETE FROM patients WHERE id = :id');
+       $query->execute(['id' => $id]);
+   }
+
+    function deleteAllRendezvous(int $id) : void{
+        $pdo = getPdo();
+
+        $query = $pdo->prepare('DELETE FROM appointments WHERE idPatients = :id_patient');
+        $query->execute(['id_patient' => $id]);
     }
 ?>

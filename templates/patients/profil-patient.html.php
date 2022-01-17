@@ -15,4 +15,19 @@
         </div>
     </div>
 
+    <div class="mx-auto col-8 d-flex flex-row flex-wrap justify-content-around">
+    <?php foreach($rendezvous as $key => $value): ?>
+        <?php if($_GET['id'] == $value['idPatients']): ?>
+        <div class="card mx-2 mb-3 mt-5 bg-info text-white" style="width: 20rem;">
+            <div class="card-body p-3"> 
+                <h5 class="card-title my-4">id rdv : <?= $value['id'] ?></h5>           
+                <h5 class="card-title my-4">date rdv : <?= $value['dateHour'] ?></h5>
+                <h5 class="card-title my-4">id : <?= $value['idPatients'] ?></h5>                   
+                <a href="rendezvousModify.php?id=<?= $value['id'] ?>" class="btn btn-outline-light mt-4 mb-2 p-2">Modifier le rendez-vous</a>           
+            </div>
+        </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </div>
+
 </div>
