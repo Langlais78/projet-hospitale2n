@@ -5,7 +5,7 @@
     <h3 class="mb-5">N° <?= $patient['id'] ?></h3>
 
     <div class="card mx-auto" style="width: 20rem;">
-        <div class="card-body p-3">
+        <div class="card-body p-3">            
             <h5 class="card-title my-4">Nom : <?= strtoupper($patient['lastname']) ?></h5>
             <h6 class="card-subtitle my-4 ">Prenom : <?= ucfirst($patient['firstname']) ?></h6>
             <h6 class="card-subtitle my-4">Date de naissance : <?= $patient['birthdate'] ?></h6>

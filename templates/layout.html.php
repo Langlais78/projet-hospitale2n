@@ -45,7 +45,8 @@
         <a class="navbar-brand" href="index.php">Accueil</a>
         <a class="navbar-brand" href="patientAjout.php">Ajout patient</a>
         <a class="navbar-brand" href="patient.php">Patients</a>
-        <a class="navbar-brand" href="ajout-rendezvous.php">Ajout rendez-vous</a>
+        <a class="navbar-brand" href="rendezvousAjout.php">Ajout rendez-vous</a>
+        <a class="navbar-brand" href="rendezvousListe.php">liste rendez-vous</a>
   </div>
 </nav>
 
