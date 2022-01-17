@@ -38,7 +38,7 @@
 
     }
 
-    function findAllPatient(){
+    function findAllPatient() : array{
 
         $pdo = getPdo();
 
@@ -49,7 +49,7 @@
 
     }
 
-    function findPatient(int $id) : array{
+    function findPatient(int $id){
 
         $pdo = getPdo();
 
@@ -71,4 +71,26 @@
         
     }
 
+    function findAllRendezvous(){
+
+        $pdo = getPdo();
+
+        $resultats = $pdo->query('SELECT * FROM appointments ORDER BY dateHour ASC');
+        $rendezVous = $resultats->fetchAll();
+
+        return $rendezVous;
+
+    }
+
+    function findRendezvous(int $id) : array{
+
+        $pdo = getPdo();
+
+        $query = $pdo->prepare("SELECT * FROM appointments WHERE id = :rendezvous_id");
+        $query->execute(['rendezvous_id' => $id]);
+        $rendezvous = $query->fetch();
+
+        return $rendezvous;
+
+    }
 ?>

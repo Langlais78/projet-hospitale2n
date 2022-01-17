@@ -3,7 +3,7 @@
 <div class="text-center my-3"><?= $msg ?></div>
 
 <div class="d-flex justify-content-center">
-    <form action="ajout-rendezvous.php" method="post" class="col-4 form-patient-rendezvous">
+    <form action="rendezvousAjout.php" method="post" class="col-4 form-patient-rendezvous">
         <label for="dateHour" class="form-label">Date et Heure du rendez-vous :</label>
         <input type="datetime-local" id="" class="form-control my-2" name="dateHour" min="2022-01-01T08:00" max="2050-01-30T18:30">
         <label for="idPatient" class="form-label">Prenom et Nom du patient :</label>
