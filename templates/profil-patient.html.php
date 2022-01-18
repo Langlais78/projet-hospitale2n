@@ -11,7 +11,7 @@
             <h6 class="card-subtitle my-4">Date de naissance : <?= $patient['birthdate'] ?></h6>
             <h6 class="card-subtitle my-4">N° Telephone : <?= $patient['phone'] ?></h6>
             <h6 class="card-subtitle my-4">Adresse email : <?= $patient['mail'] ?></h6> 
-            <a href="patientModify.php?id=<?= $patient['id'] ?>" class="btn btn-outline-secondary mt-4 mb-2 p-2">Modifier les informations du patient</a>           
+            <a href="index.php?controller=patient&action=modify&id=<?= $patient['id'] ?>" class="btn btn-outline-secondary mt-4 mb-2 p-2">Modifier les informations du patient</a>           
         </div>
     </div>
 
@@ -22,7 +22,7 @@
                 <h5 class="card-title my-4">id rdv : <?= $value['id'] ?></h5>           
                 <h5 class="card-title my-4">date rdv : <?= $value['dateHour'] ?></h5>
                 <h5 class="card-title my-4">id : <?= $value['idPatients'] ?></h5>                   
-                <a href="rendezvousModify.php?id=<?= $value['id'] ?>" class="btn btn-outline-light mt-4 mb-2 p-2">Modifier le rendez-vous</a>           
+                <a href="index.php?controller=rendezvous&action=modify&id=<?= $value['id'] ?>" class="btn btn-outline-light mt-4 mb-2 p-2">Modifier le rendez-vous</a>           
             </div>
         </div>        
     <?php endforeach; ?>

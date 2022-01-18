@@ -18,6 +18,6 @@
         </div>
     </div>
 
-    <a href="rendezvousModify.php?id=<?= $rendezvous['id'] ?>" class="btn btn-success">Modifier rendez-vous</a>
+    <a href="index.php?controller=rendezvous&action=modify&id=<?= $rendezvous['id'] ?>" class="btn btn-success">Modifier rendez-vous</a>
     
 </div>

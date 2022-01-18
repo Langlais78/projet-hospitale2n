@@ -2,9 +2,11 @@
 
 namespace Models;
 
-require_once('libraries/Models/Model.php');
+require_once('libraries/autoload.php');
 
 class Rendezvous extends Model{
+
+    protected $table = "appointments";
    
 
     public function insert(string $dateHour, int $idPatient) : void{        

@@ -1,7 +1,7 @@
 <h1 class="text-center my-5">LISTE DES PATIENTS</h1>
 
 <div class="text-center">
-  <a href="patientAjout.php" class="col-6 btn btn-outline-success my-3 py-2">Ajouter un patient</a>
+  <a href="index.php?controller=patient&action=add" class="col-6 btn btn-outline-success my-3 py-2">Ajouter un patient</a>
 </div>
 
 <div class="table-responsive col-8 mx-auto">
@@ -32,9 +32,9 @@
 
         <?php endforeach; ?>
             <td>
-              <a href="patientProfil.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Details</a>
-              <a href="patientModify.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Modifier</a>
-              <a href="patientDelete.php?id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Supprimer</a>
+              <a href="index.php?controller=patient&action=profil&id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Details</a>
+              <a href="index.php?controller=patient&action=modify&id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table">Modifier</a>
+              <a href="index.php?controller=patient&action=delete&id=<?= $tab['id'] ?>" class="mx-2 lien-patient-table" onclick="return window.confirm(`Êtes vous sûr de vouloir supprimer le patient <?= $tab['lastname'] ?> <?= $tab['firstname'] ?> ?!`)">Supprimer</a>
             </td>
       </tr>
 
@@ -44,6 +44,3 @@
   </tbody>
 </table>
 </div>
-
-    
-

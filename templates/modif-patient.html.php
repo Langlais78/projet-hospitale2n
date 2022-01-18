@@ -1,7 +1,7 @@
 <div id="">
     <h2 class="text-center my-5">Modification des informations du patient N° <?= $patient['id']?></h2>
 
-    <form action="patientModify.php?id=<?= $patient['id'] ?>" method="POST" class="col-4 mx-auto form-patient-modif">
+    <form action="index.php?controller=patient&action=modify&id=<?= $patient['id'] ?>" method="POST" class="col-4 mx-auto form-patient-modif">
 
         <label for="lastname" class="form-label">Nom :</label>
         <input type="text" class="form-control" name="lastname" value="<?= $patient['lastname'] ?>">

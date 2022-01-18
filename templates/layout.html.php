@@ -43,10 +43,10 @@
 <nav class="navbar navbar-light bg-light navbar-menu">
   <div class="container-fluid d-flex justify-content-center">
         <a class="navbar-brand" href="index.php">Accueil</a>
-        <a class="navbar-brand" href="patientAjout.php">Ajout patient</a>
-        <a class="navbar-brand" href="patient.php">Patients</a>
-        <a class="navbar-brand" href="rendezvousAjout.php">Ajout rendez-vous</a>
-        <a class="navbar-brand" href="rendezvousListe.php">liste rendez-vous</a>
+        <a class="navbar-brand" href="index.php?controller=patient&action=add">Ajout patient</a>
+        <a class="navbar-brand" href="index.php?controller=patient&action=findAll">Patients</a>
+        <a class="navbar-brand" href="index.php?controller=rendezvous&action=add">Ajout rendez-vous</a>
+        <a class="navbar-brand" href="index.php?controller=rendezvous&action=findAll">liste rendez-vous</a>
         <a class="navbar-brand" href="ajoutPatientRendezvous.php">ajout p r</a>
   </div>
 </nav>
