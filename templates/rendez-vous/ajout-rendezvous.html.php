@@ -10,7 +10,7 @@
         <select name="idPatient" id="" class="form-control my-2" name="idPatient">
             <option value=""></option>
                 <?php foreach($patient as $key => $value): ?>
-                    <option value="<?= $value['id'] ?>">- <?= ucfirst($value['firstname']) ?> <?= strtoupper($value['lastname']) ?> -</option>
+                    <option value="<?= $value['id'] ?>"><?= $value['id'] ?>- <?= ucfirst($value['firstname']) ?> <?= strtoupper($value['lastname']) ?> -</option>
                 <?php endforeach; ?>
         </select>
         <div class="d-flex justify-content-end mt-4">

@@ -1,9 +1,6 @@
 <?php
-require_once ('libraries/Database.php');
-require_once ('libraries/utils.php');
 
-$pageTitle = 'liste rendez-vous';
+require_once('libraries/Controllers/Rendezvous.php');
 
-$rendezVous = findAllRendezvous();
-
-render('rendez-vous/liste-rendezvous', compact('pageTitle', 'rendezVous'));
+$rendezvous = new \Controllers\Rendezvous();
+$rendezvous->findAll();
