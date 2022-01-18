@@ -1,10 +1,6 @@
 <?php
 
-require_once('libraries/Database.php');
-require_once('libraries/utils.php');
+require_once('libraries/Controllers/Patient.php');
 
-$pageTitle = "Affichage patients";
-
-$patients = findAllPatient();
-
-render('patients/liste-patient', compact('pageTitle', 'patients'));
+$controller = new \Controllers\Patient();
+$controller->findAll();

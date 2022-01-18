@@ -1,23 +1,8 @@
-<?php 
+<?php
 
-require_once('libraries/Database.php');
-require_once('libraries/utils.php');
+require_once('libraries/Controllers/Patient.php');
+require_once('libraries/Controllers/Rendezvous.php');
 
-$patient_id = null;
+$patient = new \Controllers\Patient();
+$patient->profil();
 
-if (!empty($_GET['id']) && ctype_digit($_GET['id'])) {
-    $patient_id = $_GET['id'];
-}
-
-if (!$patient_id) {
-    die("Vous devez préciser un paramètre `id` dans l'URL !");
-}
-
-$patient = findPatient($patient_id);
-
-$rendezvous = findAllRendezvous($patient_id);
-
-
-$pageTitle =  'Profil patient';
-
-render('patients/profil-patient', compact('pageTitle', 'patient', 'patient_id', 'rendezvous'));

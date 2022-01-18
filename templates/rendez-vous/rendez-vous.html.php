@@ -6,7 +6,7 @@
     
     <div class="card mx-auto" style="width: 20rem;">
         <div class="card-body p-3"> 
-            <?php foreach ($patient as $value) : ?> 
+            <?php foreach ($patient as $key => $value) : ?> 
                 <?php if( $value['id'] == $rendezvous['idPatients'] ):  ?>        
                     <h5 class="card-title my-4">Nom : <?= strtoupper($value['lastname']) ?></h5>
                     <h6 class="card-subtitle my-4 ">Prenom : <?= ucfirst($value['firstname']) ?></h6>
