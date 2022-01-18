@@ -2,28 +2,22 @@
 
 namespace Controllers;
 
-require_once('libraries/utils.php');
-require_once('libraries/Models/Patient.php');
-require_once('libraries/Models/Rendezvous.php');
+class Patient extends Controller{
 
-class Patient{
+    protected $nameModel = \Models\Patient::class;
 
 
     public function findAll(){
 
-        $model = new \Models\Patient();
         $pageTitle = "Affichage patients";
-        $patients = $model->findAllPatient();
-        render('patients/liste-patient', compact('pageTitle', 'patients'));
+        $patients = $this->model->findAllPatient();
+        \Renderer::render('patient', compact('pageTitle', 'patients'));
 
     }
 
-
     public function add(){
 
-        $model = new \Models\Patient();
-
-        $pageTitle = "Ajout patients";
+        $pageTitle = "Ajout patients";        
 
         $lastname = null;
         if (!empty($_POST['lastname'])) {
@@ -52,9 +46,9 @@ class Patient{
 
         if (isset($lastname, $firstname, $birthdate, $phone, $mail)) {
             
-            $model->insert($lastname, $firstname, $birthdate, $phone, $mail);
+            $this->model->insert($lastname, $firstname, $birthdate, $phone, $mail);
 
-            redirect('patient.php');
+            \Http::redirect('index.php?controller=patient&action=findAll');
             
         }
         else
@@ -62,13 +56,12 @@ class Patient{
             $msg = "Veuillez remplir tout les champs correctemet !";
         }
 
-        render('patients/ajout-patient', compact('pageTitle', 'msg'));
+        \Renderer::render('patient', compact('pageTitle', 'msg'));
         
     }
 
     public function delete(){
 
-        $modelPatient = new \Models\Patient();
         $modelRendezvous = new \Models\Rendezvous();
 
         $id = $_GET['id'];
@@ -79,41 +72,38 @@ class Patient{
             die("Ho ?! Tu n'as pas précisé l'id de l'article !");
         }
 
-        $patient = $modelPatient->find($id);
+        $patient = $this->model->find($id);
             if(!$patient){
                 die("le patient $id n'existe pas, selectionner un patient existant !!!");
             }
             
-        $modelPatient->delete($id);
+        $this->model->delete($id);
 
-        redirect('index.php');
+        \Http::redirect('index.php?controller=patient&action=findAll');
         
     }
 
     public function modify(){
 
-        $model = new \Models\Patient();
-
-        $pageTitle = "modifier profil";
+        $pageTitle = "modifier patient";
 
         $patient_id = $_GET['id'];
 
-        $patient = $model->find($patient_id);
+        $patient = $this->model->find($patient_id);        
 
         if(isset($_POST['lastname'], $_POST['firstname'], $_POST['birthdate'], $_POST['phone'], $_POST['mail']))
         {
-            $model->modify();
+            $this->model->modify();
 
-            redirect('patient.php');
+            \Http::redirect('index.php?controller=patient&action=findAll');
         }
 
-        render('patients/modif-patient', compact('pageTitle', 'patient', 'patient_id'));
+        \Renderer::render('patient', compact('pageTitle', 'patient', 'patient_id'));       
         
     }
 
     public function profil(){
 
-        $modelPatient = new \Models\Patient();
         $modelRendezvous = new \Models\Rendezvous();
 
         $id = null;
@@ -126,7 +116,7 @@ class Patient{
             die("Vous devez préciser un paramètre `id` dans l'URL !");
         }
 
-        $patient = $modelPatient->find($id);
+        $patient = $this->model->find($id);
 
         $rendezvous = $modelRendezvous->findRendezvousPatient($id);
         
@@ -134,7 +124,7 @@ class Patient{
 
         $pageTitle = 'Profil patient';
 
-        render('patients/profil-patient', compact('pageTitle', 'patient', 'id', 'rendezvous'));
+        \Renderer::render('patient', compact('pageTitle', 'patient', 'id', 'rendezvous'));
 
     }
 

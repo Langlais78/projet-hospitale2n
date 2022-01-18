@@ -1,8 +1,8 @@
 <?php
 
-require_once('libraries/Database.php');
-require_once('libraries/utils.php');
+require_once('libraries/autoload.php');
 
-$pageTitle = "Accueil";
+\Application::process();
 
-render('index', compact('pageTitle'));
+// $controller = new \Controllers\Index();
+// $controller->index();

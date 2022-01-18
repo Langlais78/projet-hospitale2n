@@ -3,7 +3,7 @@
 
 <div class="text-center my-3"><?= $msg ?></div>
     
-    <form action="patientAjout.php" method="POST" class="col-4 mx-auto form-patient-ajout">
+    <form action="index.php?controller=patient&action=add" method="POST" class="col-4 mx-auto form-patient-ajout">
         
         <label for="lastname" class="form-label">Nom :</label>
         <input type="text" class="form-control" name="lastname">
@@ -27,5 +27,5 @@
     </form>
 
     <div class="text-center my-4">
-        <a href="patient.php" class="col-4 btn btn-outline-primary p-2">Afficher les patients</a>
+        <a href="index.php?controller=patient&action=findAll" class="col-4 btn btn-outline-primary p-2">Afficher les patients</a>
     </div>

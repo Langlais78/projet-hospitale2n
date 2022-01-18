@@ -2,27 +2,22 @@
 
 namespace Controllers;
 
-require_once('libraries/utils.php');
-require_once('libraries/Models/Rendezvous.php');
-require_once('libraries/Models/Patient.php');
+class Rendezvous extends Controller{
 
-class Rendezvous{
+    protected $nameModel = \Models\Rendezvous::class;
 
     public function findAll(){
 
-        $model = new \Models\Rendezvous();
-
         $pageTitle = 'liste rendez-vous';
 
-        $rendezVous = $model->findAllRendezvous();
+        $rendezVous = $this->model->findAllRendezvous();
         
-        render('rendez-vous/liste-rendezvous', compact('pageTitle', 'rendezVous'));
+        \Renderer::render('liste-rendezvous', compact('pageTitle', 'rendezVous'));
     }
 
     public function findRendezvous(){
 
         $modelPatient = new \Models\Patient();
-        $modelRendezvous = new \Models\Rendezvous();
 
         $pageTitle = 'Rendez-vous';
 
@@ -32,37 +27,35 @@ class Rendezvous{
             $rendezvous_id = $_GET['id'];
         }
 
-        $rendezvous = $modelRendezvous->find($rendezvous_id); 
+        $rendezvous = $this->model->find($rendezvous_id); 
 
         $patient = $modelPatient->findAllpatient();
 
         //echo '<pre>'; print_r($patient); echo '</pre>';
 
-        render('rendez-vous/rendez-vous', compact('pageTitle', 'rendezvous_id', 'rendezvous', 'patient'));
+        \Renderer::render('rendez-vous', compact('pageTitle', 'rendezvous_id', 'rendezvous', 'patient'));
 
         }
 
     public function delete(){
-
-        $model = new \Models\Rendezvous();
         
         $id = $_GET['id'];
         
-        $rendezvous = $model->find($id);
-            if(!$rendezvous){
-                die("le rendez-vous $id n'existe pas, selectionner un rendez-vous valide");
-            }
+        $rendezvous = $this->model->find($id);
+
+        if(!$rendezvous){
+            die("le rendez-vous $id n'existe pas, selectionner un rendez-vous valide");
+        }
         
-        $model->delete($id);
+        $this->model->delete($id);
         
-        redirect('index.php');
+        \Http::redirect('index.php?controller=rendezvous&action=findAll');
         
     }
 
     public function add(){
 
         $modelPatient = new \Models\Patient();
-        $modelRendezvous = new \Models\Rendezvous();
 
         $pageTitle = "ajout rendez-vous";
 
@@ -82,7 +75,9 @@ class Rendezvous{
 
         if (isset($dateHour, $idPatient))
         {
-            $modelRendezvous->insert($dateHour, $idPatient);
+            $this->model->insert($dateHour, $idPatient);
+
+            \Http::redirect('index.php?controller=rendezvous&action=findAll');
 
             $msg = "votre rdv a été enregistrer avec success !";
         }
@@ -91,7 +86,7 @@ class Rendezvous{
             $msg = '<span>Veuillez renseigner une date et un patient !</span>';
         }
 
-        render('rendez-vous/ajout-rendezvous', compact('pageTitle', 'patient', 'idPatient', 'msg'));
+        \Renderer::render('ajout-rendezvous', compact('pageTitle', 'patient', 'idPatient', 'msg'));
 
 
         
@@ -100,7 +95,6 @@ class Rendezvous{
     public function modify(){
     
         $modelPatient = new \Models\Patient();
-        $modelRendezvous = new \Models\Rendezvous();
 
         $pageTitle = 'Modification rendez-vous';
 
@@ -108,16 +102,16 @@ class Rendezvous{
 
         $rendezvous_id = $_GET['id'];
 
-        $rendezvous = $modelRendezvous->find($rendezvous_id);
+        $rendezvous = $this->model->find($rendezvous_id);        
 
         if(isset($_POST['dateHour'], $_POST['idPatients']))
         {
-            $modelRendezvous->modify();
+            $this->model->modify();
 
-            redirect('rendezvousListe.php');
+            \Http::redirect('index.php?controller=rendezvous&action=findAll');
         }
 
-        render('rendez-vous/modifier-rendezvous', compact('pageTitle', 'rendezvous', 'rendezvous_id', 'patient'));
+        \Renderer::render('modifier-rendezvous', compact('pageTitle', 'rendezvous', 'rendezvous_id', 'patient'));
 
     
     }

@@ -2,11 +2,11 @@
 
 namespace Models;
 
-require_once('libraries/Models/Model.php');
+require_once('libraries/autoload.php');
 
-class Patient extends Model{
-
+class Patient extends Model{ 
     
+    protected $table = "patients";
 
     public function findAllPatient() : array{
 
@@ -36,7 +36,7 @@ class Patient extends Model{
 
     public function modify(){
 
-        $query = $this->pdo->prepare("UPDATE patients SET lastname = :lastname, firstname = :firstname, birthdate = :birthdate, phone = :phone, mail = :mail WHERE id = :patient_id ");
+        $query = $this->pdo->prepare("UPDATE patients SET lastname = :lastname, firstname = :firstname, birthdate = :birthdate, phone = :phone, mail = :mail WHERE id = :patient_id");
 
         $query->bindValue(':patient_id', $_GET['id']);
         $query->bindValue(':lastname', $_POST['lastname']);
