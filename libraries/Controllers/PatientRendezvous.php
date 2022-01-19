@@ -50,9 +50,6 @@ class PatientRendezvous extends Controller{
         if (!empty($_POST['idPatients'])) {
             $idPatients = $_POST['idPatients'];
         }
-    
-
-        //echo '<pre>'; print_r($id); echo '</pre>';
 
         if (isset($dateHour, $idPatients)) {
             

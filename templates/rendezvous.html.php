@@ -67,6 +67,7 @@
                         <option value="<?= $value['id'] ?>"><?= $value['id'] ?>- <?= ucfirst($value['firstname']) ?> <?= strtoupper($value['lastname']) ?> -</option>
                     <?php endforeach; ?>
             </select>
+            <span class="">Si votre patient n'existe pas <a href="index.php?controller=patientRendezvous&action=add" class="text-primary">Cliquez ici</a></span>
 
             <div class="d-flex justify-content-end mt-4">
                 <button class="btn btn-primary p-2 fs-5 mt-4">VALIDER LE RENDEZ-VOUS</button>
@@ -110,7 +111,7 @@
     <div class="text-center">
         <h2 class="mt-5">Vous avez séléctionné le rendez-vous :</h2>
 
-        <h3 class="mb-5">N° <?= $rendezvous['id'] ?> du <?= $rendezvous['dateHour'] ?> patient <?= $rendezvous['idPatients'] ?></h3>
+        <h3 class="mb-5">N° <?= $rendezvous['id'] ?> du <?= $rendezvous['dateHour'] ?> avec le patient N° <?= $rendezvous['idPatients'] ?> :</h3>
 
         <div class="card mx-auto" style="width: 20rem;">
             <div class="card-body p-3"> 
@@ -125,7 +126,7 @@
                 <?php endforeach ?>       
             </div>
         </div>
-        <a href="index.php?controller=rendezvous&action=modify&id=<?= $rendezvous['id'] ?>" class="btn btn-success">Modifier rendez-vous</a>
+        <a href="index.php?controller=rendezvous&action=modify&id=<?= $rendezvous['id'] ?>" class="btn btn-success mt-4">Modifier rendez-vous</a>
     </div>
     
 <?php endif; ?>
