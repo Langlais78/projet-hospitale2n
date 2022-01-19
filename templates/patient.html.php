@@ -12,7 +12,7 @@
   <?php else : ?>
 
     <div class="text-center">
-      <a href="index.php?controller=patient&action=add" class="col-8 btn btn-outline-success my-3 py-2">Ajouter un patient</a>
+      <a href="index.php?controller=patient&action=add" class="col-8 btn btn-outline-primary my-3 py-2">Ajouter un patient</a>
     </div>
 
     <div class="table-responsive col-8 mx-auto">
@@ -133,9 +133,9 @@
       <?php foreach($rendezvous as $value): ?>        
           <div class="card mx-2 mb-3 mt-5 bg-info text-white" style="width: 20rem;">
               <div class="card-body p-3"> 
-                  <h5 class="card-title my-4">id rdv : <?= $value['id'] ?></h5>           
-                  <h5 class="card-title my-4">date rdv : <?= $value['dateHour'] ?></h5>
-                  <h5 class="card-title my-4">id : <?= $value['idPatients'] ?></h5>                   
+                  <h5 class="card-title my-4">Rendez-vous N° <?= $value['id'] ?></h5>           
+                  <h5 class="card-title my-4">Date : <?= $value['dateHour'] ?></h5>
+                  <!-- <h5 class="card-title my-4">id : <?= $value['idPatients'] ?></h5>                    -->
                   <a href="index.php?controller=rendezvous&action=modify&id=<?= $value['id'] ?>" class="btn btn-outline-light mt-4 mb-2 p-2">Modifier le rendez-vous</a>           
               </div>
           </div>        

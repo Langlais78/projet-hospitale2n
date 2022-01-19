@@ -11,7 +11,9 @@
 
 
 <div class="col-10 d-flex justify-content-around flex-wrap mx-auto p-5 mb-5 block-index">
-    <a href="patientAjout.php" class="bouton-accueil text-center">Ajouter patient</a>
-    <a href="patient.php" class="bouton-accueil text-center">liste patient</a>
-    <a href="rendezvousListe.php" class="bouton-accueil text-center">liste des rendez-vous</a>
+    <a href="index.php?controller=patient&action=add" class="bouton-accueil text-center">Ajouter patient</a>
+    <a href="index.php?controller=patient&action=findAll" class="bouton-accueil text-center">liste patient</a>
+    <a href="index.php?controller=rendezvous&action=findAll" class="bouton-accueil text-center">liste des rendez-vous</a>
+    <a href="index.php?controller=rendezvous&action=add" class="bouton-accueil text-center">Ajouter un rendez-vous</a>
+    <a href="index.php?controller=patientRendezvous&action=add" class="bouton-accueil text-center">Ajouter un patient et un rendez-vous</a>
 </div> 
