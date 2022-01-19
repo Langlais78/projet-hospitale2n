@@ -12,8 +12,9 @@ class Rendezvous extends Controller{
 
         $rendezVous = $this->model->findAllRendezvous();
         
-        \Renderer::render('liste-rendezvous', compact('pageTitle', 'rendezVous'));
+        \Renderer::render('rendezvous', compact('pageTitle', 'rendezVous'));
     }
+
 
     public function findRendezvous(){
 
@@ -33,9 +34,9 @@ class Rendezvous extends Controller{
 
         //echo '<pre>'; print_r($patient); echo '</pre>';
 
-        \Renderer::render('rendez-vous', compact('pageTitle', 'rendezvous_id', 'rendezvous', 'patient'));
-
-        }
+        \Renderer::render('rendezvous', compact('pageTitle', 'rendezvous_id', 'rendezvous', 'patient'));
+    }
+    
 
     public function delete(){
         
@@ -49,9 +50,9 @@ class Rendezvous extends Controller{
         
         $this->model->delete($id);
         
-        \Http::redirect('index.php?controller=rendezvous&action=findAll');
-        
+        \Http::redirect('index.php?controller=rendezvous&action=findAll');        
     }
+
 
     public function add(){
 
@@ -83,14 +84,12 @@ class Rendezvous extends Controller{
         }
         else
         {
-            $msg = '<span>Veuillez renseigner une date et un patient !</span>';
+            $msg = '<span class="text-danger">Veuillez renseigner une date et un patient !</span>';
         }
 
-        \Renderer::render('ajout-rendezvous', compact('pageTitle', 'patient', 'idPatient', 'msg'));
-
-
-        
+        \Renderer::render('rendezvous', compact('pageTitle', 'patient', 'idPatient', 'msg')); 
     }
+
 
     public function modify(){
     
@@ -111,8 +110,6 @@ class Rendezvous extends Controller{
             \Http::redirect('index.php?controller=rendezvous&action=findAll');
         }
 
-        \Renderer::render('modifier-rendezvous', compact('pageTitle', 'rendezvous', 'rendezvous_id', 'patient'));
-
-    
+        \Renderer::render('rendezvous', compact('pageTitle', 'rendezvous', 'rendezvous_id', 'patient'));
     }
 }
