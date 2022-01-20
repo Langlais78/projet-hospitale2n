@@ -1,9 +1,13 @@
-/* *{
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style-type: none !important;
-    text-decoration: none !important;
-} */
+body, html{
+    height:100%;
+} 
+
+#main{
+    min-height:100%;
+    margin:0 auto;
+    position: relative;
+    padding-bottom: 6rem;
+}
 
 .entete div h3{
     margin: 1rem !important;
@@ -67,7 +71,6 @@
     text-transform: uppercase !important ;
     margin: 1rem 1rem!important;
     text-decoration: none;
-
 }
 
 .bouton-accueil:hover {
@@ -76,8 +79,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.74);
 }
 
-/* .block-index{
-    background-color: rgba(128, 128, 128, 0.171) !important;
-    border-radius: 2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
-} */
+footer{
+    background:#ccc;
+    position:absolute;
+    bottom:0;
+    width:100%!important;
+}

@@ -6,7 +6,6 @@ class Patient extends Controller{
 
     protected $nameModel = \Models\Patient::class;
 
-
     public function findAll(){
 
         $pageTitle = "Affichage patients";
@@ -14,6 +13,7 @@ class Patient extends Controller{
         \Renderer::render('patient', compact('pageTitle', 'patients'));
 
     }
+
 
     public function add(){
 
@@ -53,12 +53,13 @@ class Patient extends Controller{
         }
         else
         {
-            $msg = "Veuillez remplir tout les champs correctemet !";
+            $msg = "<span class='text-danger'>Veuillez remplir tout les champs correctemet !</span>";
         }
 
         \Renderer::render('patient', compact('pageTitle', 'msg'));
         
     }
+
 
     public function delete(){
 
@@ -83,6 +84,7 @@ class Patient extends Controller{
         
     }
 
+
     public function modify(){
 
         $pageTitle = "modifier patient";
@@ -101,6 +103,7 @@ class Patient extends Controller{
         \Renderer::render('patient', compact('pageTitle', 'patient', 'patient_id'));       
         
     }
+    
 
     public function profil(){
 

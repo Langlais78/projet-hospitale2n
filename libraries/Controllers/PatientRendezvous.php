@@ -65,7 +65,6 @@ class PatientRendezvous extends Controller{
         
         \Renderer::render('patientRendezvous', compact('pageTitle', 'msg', 'id'));
 
-
     }
 
 
