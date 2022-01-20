@@ -50,7 +50,7 @@
 <!-- affichage du formulaire d'ajout de rendez-vous-->
 <?php elseif(isset($_GET['action']) && $_GET['action'] == "add"): ?>
 
-    <h2 class="text-center my-5 text-primary">Ajout de rendez-vous</h2>
+    <h2 class="text-center my-5 text-primary">Formulaire d'ajout de rendez-vous</h2>
 
     <div class="text-center my-3"><?= $msg ?></div>
 

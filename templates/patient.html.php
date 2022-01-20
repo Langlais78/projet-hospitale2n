@@ -2,7 +2,7 @@
 <!-- affichage de la liste des patient -->
 <?php if(isset($_GET['action']) && $_GET['action'] == "findAll"): ?>
 
-  <h1 class="text-center mt-3 mb-5 text-primary">LISTE DES PATIENTS</h1>
+  <h2 class="text-center my-5 text-primary">LISTE DES PATIENTS</h2>
 
   <?php if (count($patients) === 0) : ?>
     <h2 class="text-center mb-3">Il n'y a pas encore de Patient !</h2>
@@ -53,11 +53,11 @@
 <!-- affichage du formulaire d'ajout de patient -->
 <?php elseif(isset($_GET['action']) && $_GET['action'] == "add"): ?>
     
-  <h1 class="text-center my-5">Formulaire d'ajout de patient</h1>
+  <h2 class="text-center my-5 text-primary">Formulaire d'ajout de patient</h2>
 
   <div class="text-center my-3"><?= $msg ?></div>
       
-    <form action="index.php?controller=patient&action=add" method="POST" class="col-4 mx-auto form-patient-ajout">          
+    <form action="index.php?controller=patient&action=add" method="POST" class="col-4 mx-auto form-patient-rendezvous">          
         <label for="lastname" class="form-label">Nom :</label>
         <input type="text" class="form-control" name="lastname">
 
@@ -74,7 +74,7 @@
         <input type="email" class="form-control" name="mail">
 
         <div class="d-flex justify-content-center">
-            <button class="btn btn-secondary py-1 px-4 my-4 ">Ajouter</button>
+            <button class="btn btn-primary p-2 fs-5 mt-4">Ajouter</button>
         </div>
     </form>
 
